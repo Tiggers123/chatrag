@@ -378,7 +378,7 @@ export default function ChatPage() {
             {/* Welcome Screen / Empty State Suggestions */}
             {messages.length === 1 && (
               <div className="max-w-2xl mx-auto mt-8">
-                <div className="flex flex-col items-center justify-center text-center space-y-6 mb-12">
+                <div className="flex flex-col items-center justify-center text-center space-y-6 mb-6">
                   <div className="bg-card p-6 rounded-3xl shadow-sm border border-border">
                     <div className="bg-purple-100 dark:bg-purple-900/30 p-4 rounded-2xl inline-flex">
                       <Bot className="w-10 h-10 text-purple-600" />
@@ -445,7 +445,7 @@ export default function ChatPage() {
                 <Send className="w-4 h-4" />
               </Button>
             </div>
-            <p className="text-center text-[10px] text-gray-400 mt-2 font-medium">AI can make mistakes. Please check important info.</p>
+            <p className="text-center text-[10px] text-gray-400 mt-2 font-medium">AI อาจทำผิดพลาด กรุณาตรวจสอบข้อมูลอ้างอิงกับเอกสารอีกที</p>
           </div>
         </div>
       </main>

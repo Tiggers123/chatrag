@@ -98,7 +98,7 @@ export default function AdminPage() {
             <aside className="hidden md:flex w-72 flex-col bg-card border-r border-border">
                 <div className="p-6 pb-2">
                     <div className="flex items-center gap-3 mb-8">
-                        <div className="bg-purple-600 p-2 rounded-xl shadow-lg shadow-purple-200">
+                        <div className="bg-purple-600 p-2 rounded-xl shadow-lg">
                             <Bot className="w-8 h-8 text-white" />
                         </div>
                         <div>
@@ -308,7 +308,7 @@ export default function AdminPage() {
                             <Button
                                 onClick={handleUpload}
                                 disabled={uploading}
-                                className="bg-purple-600 hover:bg-purple-700 text-white gap-2 shadow-lg shadow-purple-200 rounded-xl px-6 h-12 font-medium transition-all hover:scale-105"
+                                className="bg-purple-600 hover:bg-purple-700 text-white gap-2 shadow-lg  rounded-xl px-6 h-12 font-medium transition-all hover:scale-105"
                             >
                                 <CloudUpload className="w-5 h-5" /> {uploading ? "Uploading..." : "Upload New PDF"}
                             </Button>
