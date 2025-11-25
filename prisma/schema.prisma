@@ -1,0 +1,49 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String   // Added password field
+  name      String?
+  role      String   @default("user") // user, admin
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  chatSessions ChatSession[]
+}
+
+model Document {
+  id        String   @id @default(cuid())
+  name      String
+  path      String
+  size      Int
+  type      String
+  status    String   @default("Active") // Active, Processing, etc.
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ChatSession {
+  id        String    @id @default(cuid())
+  title     String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  messages  Message[]
+  userId    String?
+  user      User?     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Message {
+  id            String      @id @default(cuid())
+  content       String
+  role          String      // user, assistant
+  createdAt     DateTime    @default(now())
+  chatSessionId String
+  chatSession   ChatSession @relation(fields: [chatSessionId], references: [id], onDelete: Cascade)
+}
